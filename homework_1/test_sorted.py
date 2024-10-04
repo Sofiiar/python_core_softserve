@@ -1,16 +1,18 @@
-import unittest
+def test_divmod():
+    assert divmod(5, 2) == (2, 1)
 
 
-class TestSortedFunctions(unittest.TestCase):
+def test_power():
+    assert pow(5, 2) == 25
 
-    def test_sorted_default(self):
-        self.assertEqual(sorted(["banana", "ball", "cat"]), ["ball", "banana", "cat"])
 
-    def test_sorted_by_length(self):
-        self.assertEqual(sorted(["banana", "ball", "cat"], key=len), ["cat", "ball", "banana"])
+def test_round():
+    assert round(4.345, 2) == 4.34
+    assert round(4.345) == 4
+    assert round(4.345, 1) == 4.3
 
-    def test_sorted_reverse(self):
-        self.assertEqual(sorted(["banana", "ball", "cat"], reverse=True), ["cat", "banana", "ball"])
 
-    def test_sorted_reverse_by_length(self):
-        self.assertEqual(sorted(["banana", "ball", "cat"], reverse=True, key=len), ["banana", "ball", "cat"])
+def test_sum():
+    assert sum([1, 2, 3]) == 6
+    assert sum((1, 2, 3)) == 6
+    assert sum({1, 2, 3}) == 6
