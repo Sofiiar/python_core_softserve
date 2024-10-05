@@ -1,3 +1,5 @@
+#In a given text you need to sum the numbers while excluding any digits that form part of a word.
+# The text consists of numbers, spaces and letters from the English alphabet.
 import re
 
 
