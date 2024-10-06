@@ -12,10 +12,12 @@ def fizz_buzz(number):
         raise ValueError("Input must be a positive integer")
 
     if number % 3 == 0 and number % 5 == 0:
-        return "Fizz Buzz"
+        res = "Fizz Buzz"
     elif number % 3 == 0:
-        return "Fizz"
+        res = "Fizz"
     elif number % 5 == 0:
-        return "Buzz"
+        res = "Buzz"
     else:
-        return str(number)
+        res = str(number)
+
+    return res
