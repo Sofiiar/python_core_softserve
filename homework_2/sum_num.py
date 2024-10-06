@@ -6,7 +6,14 @@ import re
 
 
 def sum_num(txt):
-    numbers = re.findall(r'\b\d+\b', txt)
+    chunks = txt.split()
+    total_sum = sum(int(chunk) for chunk in chunks if chunk.isdigit())
 
+    return total_sum
+
+
+def sum_num_regex(txt):
+    numbers = re.findall(r'\b\d+\b', txt)
     total_sum = sum(int(num) for num in numbers)
-    return  total_sum
+
+    return total_sum
