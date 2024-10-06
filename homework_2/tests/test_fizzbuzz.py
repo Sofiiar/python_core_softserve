@@ -2,20 +2,28 @@ import pytest
 from homework_2.fizzbuzz import fizz_buzz
 
 
-def test_fizz_buz():
-    assert fizz_buzz(15) == "Fizz Buzz"
-    assert fizz_buzz(9) == "Fizz"
-    assert fizz_buzz(10) == "Buzz"
-    assert fizz_buzz(4) == "4"
+@pytest.mark.parametrize(
+    "input_value, expected_output",
+    [
+        (15, "Fizz Buzz"),
+        (9, "Fizz"),
+        (10, "Buzz"),
+        (4, "4")
+    ]
+)
+def test_fizz_buzz_valid(input_value, expected_output):
+    assert fizz_buzz(input_value) == expected_output
 
-    with pytest.raises(ValueError):
-        fizz_buzz(-1)
 
+@pytest.mark.parametrize(
+    "input_value",
+    [
+        -1,
+        0,
+        3.5,
+        "15",
+    ]
+)
+def test_fizz_buzz_invalid(input_value):
     with pytest.raises(ValueError):
-        fizz_buzz(0)
-
-    with pytest.raises(ValueError):
-        fizz_buzz(3.5)
-
-    with pytest.raises(ValueError):
-        fizz_buzz("15")
+        fizz_buzz(input_value)
